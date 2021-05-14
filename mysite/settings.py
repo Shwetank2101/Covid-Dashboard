@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'whitenoise.runserver_nostatic', # new!
     'django.contrib.staticfiles',
+    'dashboard' # new
 ]
 
 MIDDLEWARE = [
