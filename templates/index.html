@@ -1,18 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
-	<title>Covid Statistics</title>
+    <title>Covid Statistics</title>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="team" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+</head>
+
+<style>
+    /* The sidebar menu */
     
-     <meta charset="UTF-8">
-     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-     <meta name="description" content="">
-     <meta name="keywords" content="">
-     <meta name="team" content="">
-     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    .sidenav {
+        height: 100%;
+        /* Full-height: remove this if you want "auto" height */
+        width: 160px;
+        /* Set the width of the sidebar */
+        position: fixed;
+        /* Fixed Sidebar (stay in place on scroll) */
+        z-index: 1;
+        /* Stay on top */
+        top: 0;
+        /* Stay at the top */
+        left: 0;
+        background-color: #111;
+        /* Black */
+        overflow-x: hidden;
+        /* Disable horizontal scroll */
+        padding-top: 20px;
+    }
+    /* The navigation menu links */
+    
+    .sidenav a {
+        padding: 6px 8px 6px 16px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+    }
+    /* When you mouse over the navigation links, change their color */
+    
+    .sidenav a:hover {
+        color: #f1f1f1;
+    }
+    /* Style page content */
+    
+    .main {
+        margin-left: 160px;
+        /* Same as the width of the sidebar */
+        padding: 0px 10px;
+    }
+    /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+    
+    @media screen and (max-height: 450px) {
+        .sidenav {
+            display: none !important;
+        }
+        .sidenav a {
+            font-size: 18px;
+        }
+    }
+</style>
 
- </head>
- <body> Hi Sameeksha , Welcome to the team</body>
- </html>
+<body>
 
 
+
+    <div class="sidenav">
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Clients</a>
+        <a href="#">Contact</a>
+    </div>
+
+    <!-- Page content -->
+    <div class="main">
+        ...
+    </div>
+
+
+
+</body>
+
+</html>
