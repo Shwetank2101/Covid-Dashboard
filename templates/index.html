@@ -2,95 +2,415 @@
 <html lang="en">
 
 <head>
-
-    <title>Covid Statistics</title>
-
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-    <meta name="description" content="">
-    <meta name="keywords" content="">
-    <meta name="team" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Document</title>
 </head>
 
 <style>
-    /* The sidebar menu */
-    
-    .sidenav {
-        height: 100%;
-        /* Full-height: remove this if you want "auto" height */
-        width: 160px;
-        /* Set the width of the sidebar */
-        position: fixed;
-        /* Fixed Sidebar (stay in place on scroll) */
-        z-index: 1;
-        /* Stay on top */
-        top: 0;
-        /* Stay at the top */
-        left: 0;
-        background-color: #111;
-        /* Black */
-        overflow-x: hidden;
-        /* Disable horizontal scroll */
-        padding-top: 20px;
+    @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+    * {
+        box-sizing: border-box;
     }
-    /* The navigation menu links */
     
-    .sidenav a {
-        padding: 6px 8px 6px 16px;
-        text-decoration: none;
-        font-size: 25px;
-        color: #818181;
+    body {
+        margin: 0px;
+        padding: 0px;
+        text-align: center;
+    }
+    
+    #wrapper {
+        padding: 10px;
+        background: #f1f1ef;
+    }
+    
+    #center {
+        height: 1350px;
+        margin-top: 60px;
+        width: 65%;
+        margin: auto;
+    }
+    
+    #left {
+        margin-top: 10pt;
+        width: 200px;
+        float: left;
+    }
+    
+    #right {
+        float: right;
+        width: 300px;
+        margin-top: 10pt;
+    }
+    
+    #header {
+        height: 60pt;
+        position: sticky;
+    }
+    
+    .navbar {
+        position: fixed;
+        width: 100%;
+        height: 12%;
+        margin-top: 10px;
+        margin-bottom: 41px;
+        box-shadow: 12px 0px 19px rgb(190, 166, 166);
+        z-index: 100 !important;
+    }
+    
+    .nav-item {
+        padding: 2px 10px;
+        font-family: 'Roboto Mono', monospace;
+        font-weight: 500;
+        font-size: 15pt;
+        text-transform: uppercase;
+        color: white;
+        transition: 0.4s ease-in;
+        padding-bottom: 40pt;
+        /*z-index: 3;*/
+    }
+    
+    .nav-link {
+        color: black;
         display: block;
     }
-    /* When you mouse over the navigation links, change their color */
     
-    .sidenav a:hover {
-        color: #f1f1f1;
+    .navbar-expand-lg {
+        z-index: 1030;
     }
-    /* Style page content */
     
-    .main {
-        margin-left: 160px;
-        /* Same as the width of the sidebar */
-        padding: 0px 10px;
+    .navbar-brand {
+        padding-left: 0.6rem;
+        font-family: 'Roboto Condensed', sans-serif;
+        color: rgb(250, 242, 166);
+        font-weight: bold;
+        font-size: 30pt;
+        padding-bottom: 40pt;
     }
-    /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
     
-    @media screen and (max-height: 450px) {
-        .sidenav {
-            display: none !important;
+    .left-sidebar1 {
+        background: #2b6777;
+        width: 170pt;
+        height: 100%;
+        box-shadow: 12px 0px 19px rgb(170, 169, 169);
+        margin: 0;
+        padding: 0;
+        position: fixed;
+    }
+    
+    .left-sidebar1 a {
+        font-size: 13px;
+        padding: 9px;
+        border-bottom: 1px solid rgba(7, 103, 158, 0.925);
+        font-family: 'Roboto Mono', monospace;
+        font-weight: 600;
+        color: rgb(255, 255, 255);
+        display: block;
+    }
+    
+    .left-sidebar1 a {
+        color: white;
+        text-align: left;
+    }
+    
+    .left-sidebar1 a:hover {
+        padding-left: 14pt;
+        color: rgb(224, 221, 221);
+    }
+    
+    .search {
+        padding: 20pt 20pt 20pt 20pt;
+        background: white;
+        height: 70pt;
+        box-shadow: 12px 0px 19px rgb(228, 226, 226);
+    }
+    /* Style the submit button */
+    
+    .text {
+        text-align: start;
+    }
+    
+    .announcements {
+        margin-right: 10px;
+    }
+    
+    .card1 {
+        margin-top: 10pt;
+        background: white;
+        height: 300pt;
+        width: 440pt;
+        box-shadow: 12px 0px 19px rgb(228, 226, 226);
+    }
+    
+    .news {
+        background: #0ec0b9;
+        border: 3px solid black;
+        font-size: 15pt;
+    }
+    
+    .card-body1 {
+        height: 400px;
+        text-align: center;
+    }
+    
+    .eventDate {
+        text-align: center;
+        padding: 0;
+        margin-bottom: -40px;
+        font-size: 10pt;
+    }
+    
+    .event {
+        background-color: #6b026b;
+        color: #fff;
+        font-weight: 400;
+        width: 40px;
+        font-size: 10pt;
+    }
+    
+    .right-sidebar {
+        margin-top: 30pt;
+        display: block;
+        background: white;
+        box-shadow: 12px 0px 19px rgb(228, 226, 226);
+    }
+    
+    .right-sidebar a {
+        font-size: 13px;
+        padding-top: 10pt;
+        padding: 6px;
+        line-height: 2;
+        background-color: transparent;
+        font-family: 'Roboto Mono', monospace;
+        font-weight: 600;
+        color: rgba(0, 0, 0, .84);
+        border: gray;
+        display: grid;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        border-top: 1px solid rgba(225, 225, 225, 0.05);
+    }
+    
+    .right-sidebar a {
+        color: rgba(0, 0, 0, .84);
+        text-align: left;
+        flex: 1;
+    }
+    
+    .right-sidebar a:hover {
+        padding-left: 14pt;
+    }
+    
+    @media (max-width:850px) {
+        #right {
+            display: none;
         }
-        .sidenav a {
-            font-size: 18px;
+        #left {
+            display: none;
+        }
+        #center {
+            width: 95% !important;
         }
     }
 </style>
 
 <body>
+    <div id="wrapper">
+        <div id="header">
+
+            <nav class="navbar navbar-light sticky-top" style="background-color: #C19434;">
+                <a class="navbar-brand" href="#">Covid Dashboard</a>
+                <!-- <button class="navbar-toggler" style="outline:0px" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon" style="outline:0px"><i class="fa fa-navicon" style="font-size:20px;padding-bottom:20pt;color:black;"></i></span>
+        </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item ">
+                            <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="#">My courses</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="#">My Profile</a>
+                        </li>
+
+                    </ul> -->
+                <!-- </div> -->
+
+            </nav>
+        </div>
+
+        <div id="left">
+
+            <div class="left-sidebar1">
+
+                <a href="#">A</a><br>
+                <a href="#">B</a><br>
+                <a href="#">C</a><br>
+                <a href="#">D</a><br>
+                <a href="#">E</a><br>
+                <a href="#">F</a><br>
+
+
+            </div>
 
 
 
-    <div class="sidenav">
-        <a href="#">About</a>
-        <a href="#">Services</a>
-        <a href="#">Clients</a>
-        <a href="#">Contact</a>
-    </div>
-
-    <!-- Page content -->
-    <div class="main">
-        ...
-    </div>
 
 
-    </head>
 
-    <body>Welcome to the team</body>
 
-</html>
 
+        </div>
+
+        <div id="right">
+            <!-- <div class="search">
+                <input type="text" name="s" autocomplete="off" class="form-control input-error" placeholder="Type your search">
+
+            </div> -->
+
+
+
+
+
+
+            <div class="announcements">
+                <div class="box">
+                    <div class="card1 md-4 shadow p-3" style="width: 220pt; margin-right:10pt; ">
+                        <div class="card-body1">
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+
+
+
+        <div id="center">
+
+
+            <div class="container-fluid" style="margin-top: 20pt;">
+                <div class="header-body">
+                    <!-- Card stats -->
+                    <div class="row">
+                        <div class="col-xl-3 col-lg-6">
+                            <div class="card shadow card-stats mb-4 mb-xl-0 fade-in-top">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col">
+                                            <h5 class="card-title text-uppercase text-muted mb-0">
+                                                Confirmed
+                                            </h5>
+                                            <span id="daily_confirmed_label" class="h2 font-weight-bold mb-0">0</span
+                              >
+                            </div>
+                            
+                          </div>
+                          <p class="mt-3 mb-0 text-muted text-sm">
+                            <span id="trend_confirmed_label" class="mr-2">+0%</span>
+                                            <span class="text-nowrap">Since last week</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-3 col-lg-6">
+                                    <div class="card shadow card-stats mb-4 mb-xl-0 fade-in-top">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <h5 class="card-title text-uppercase text-muted mb-0">
+                                                        Recovered
+                                                    </h5>
+                                                    <span id="daily_recovered_label" class="h2 font-weight-bold mb-0">0</span
+                              >
+                            </div>
+                            
+                          </div>
+                          <p class="mt-3 mb-0 text-muted text-sm">
+                            <span id="trend_recovered_label" class="mr-2">+0%</span>
+                                                    <span class="text-nowrap">Since last week</span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-3 col-lg-6">
+                                            <div class="card shadow card-stats mb-4 mb-xl-0 fade-in-top">
+                                                <div class="card-body">
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <h5 class="card-title text-uppercase text-muted mb-0">
+                                                                Deaths
+                                                            </h5>
+                                                            <span id="daily_deaths_label" class="h2 font-weight-bold mb-0">0</span
+                              >
+                            </div>
+                            
+                          </div>
+                          <p class="mt-3 mb-0 text-muted text-sm">
+                            <span id="trend_deaths_label" class="mr-2">+0%</span>
+                                                            <span class="text-nowrap">Since last week</span>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-3 col-lg-6">
+                                                    <div class="card shadow card-stats mb-4 mb-xl-0 fade-in-top">
+                                                        <div class="card-body">
+                                                            <div class="row">
+                                                                <div class="col">
+                                                                    <h5 class="card-title text-uppercase text-muted mb-0">
+                                                                        Death Rate
+                                                                    </h5>
+                                                                    <span id="daily_death_rate_label" class="h2 font-weight-bold mb-0">0</span
+                              >
+                            </div>
+                            
+                          </div>
+                          <p class="mt-3 mb-0 text-muted text-sm">
+                            <span id="trend_death_rate_label" class="mr-2">+0</span>
+                                                                    <span class="text-nowrap">Since last week</span>
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+
+
+
+                                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+                                    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+                                    </script>
+                                    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+                                    </script>
 </body>
 
 </html>
