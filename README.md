@@ -1,5 +1,8 @@
-[Our website](https://covid19--dashboards.herokuapp.com/)
-<<<<<<< HEAD
-=======
+How to run?
+1 Clone the repository
 
->>>>>>> f63e0173442f3532d1e88dd056b4a7b061bbb563
+2 In CMD, run 'pip install -r requirements.txt' to install all requirements
+
+3 Run 'python manage.py runserver'.
+
+[Our website](https://covid19--dashboards.herokuapp.com/)
