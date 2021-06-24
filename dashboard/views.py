@@ -5,6 +5,7 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User, auth
 from django.views.decorators.csrf import csrf_exempt
 import requests
+from collections import OrderedDict as od
 
 
 # Create your views here.
@@ -40,26 +41,12 @@ def index(request):
     dead_india = india['deaths']
 
     updated_time_india = india['lastupdatedtime']
-
-    # Uttar Pradesh count
-
-    i = 0
-    ind = ''
-    for k in statewise:
-        if k['state'] == 'Uttar Pradesh':
-            ind = i
-        i = i + 1
-
-    uttarpradesh = statewise[ind]
-
-    total_uttarpradesh = {'total': uttarpradesh['confirmed']}
-
-    active_uttarpradesh = {'active': uttarpradesh['active']}
-
-    recovered_uttarpradesh = {'recovered': uttarpradesh['recovered']}
-
-    dead_uttarpradesh = {'dead': uttarpradesh['deaths']}
-    context = {'a': [total_uttarpradesh, active_uttarpradesh, recovered_uttarpradesh,
-                     dead_uttarpradesh], 'name': ['total', 'active', 'recovered', 'dead']}
+    
+    state=['Total', 'Andaman and Nicobar Islands', 'Andhra Pradesh', 'Arunachal Pradesh', 'Assam', 'Bihar', 'Chandigarh', 'Chhattisgarh', 'Dadra and Nagar Haveli and Daman and Diu', 'Delhi', 'Goa', 'Gujarat', 'Haryana', 'Himachal Pradesh', 'Jammu and Kashmir', 'Jharkhand', 'Karnataka', 'Kerala', 'Ladakh', 'Lakshadweep', 'Madhya Pradesh', 'Maharashtra', 'Manipur', 'Meghalaya', 'Mizoram', 'Nagaland', 'Odisha', 'Puducherry', 'Punjab', 'Rajasthan', 'Sikkim', 'State Unassigned', 'Tamil Nadu', 'Telangana', 'Tripura', 'Uttar Pradesh', 'Uttarakhand', 'West Bengal']
+    check={}
+    for i in range(1,len(state)):
+        check[state[i]] = {'total':statewise[i]['confirmed'],'active':statewise[i]['active'],'recovered':statewise[i]['recovered'],'death':statewise[i]['deaths']}
+        
+    context={'name': ['total', 'active', 'recovered', 'dead'],'states':check}
 
     return render(request, 'covidstat.html', context)
