@@ -16,8 +16,10 @@
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
     * {
         box-sizing: border-box;
+        font-family: 'Ubuntu', sans-serif;
     }
     
     body {
@@ -274,11 +276,23 @@
     
     .card {
         box-shadow: 12px 0px 19px rgb(228, 226, 226);
+        height: 80pt;
+        width: 120pt;
+        margin: auto;
     }
     
     .card-body {
         margin: 0% 0% 0% 3%;
         padding: 6% 0%;
+    }
+    
+    .card-title {
+        font-weight: bold;
+    }
+    
+    .card-text {
+        margin: 20pt;
+        font-size: medium;
     }
     
     .eventDate {
@@ -462,9 +476,9 @@
                                 <!--Title-->
                                 <h4 class="card-title">CONFIRMED</h4>
                                 <!--Text-->
-                                <h2 class="card-text">{{states.total_india}}</h2>
+                                <p class="card-text">{{confirmed}}</p>
                                 <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                                <button type="button" class="btn btn-light-blue btn-md">Read more</button>
+
 
                             </div>
 
@@ -478,9 +492,7 @@
                                 <!--Title-->
                                 <h4 class="card-title">RECOVERED</h4>
                                 <!--Text-->
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                                <button type="button" class="btn btn-light-blue btn-md">Read more</button>
+                                <p class="card-text">{{recovered}}</p>
 
                             </div>
 
@@ -493,9 +505,8 @@
                                 <!--Title-->
                                 <h4 class="card-title">ACTIVE</h4>
                                 <!--Text-->
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                                <button type="button" class="btn btn-light-blue btn-md">Read more</button>
+                                <p class="card-text">{{active}}</p>
+
 
                             </div>
 
@@ -508,9 +519,8 @@
                                 <!--Title-->
                                 <h4 class="card-title">DEATH</h4>
                                 <!--Text-->
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                                <button type="button" class="btn btn-light-blue btn-md">Read more</button>
+                                <p class="card-text">{{deaths}}</p>
+
 
                             </div>
 
@@ -525,44 +535,13 @@
 
 
                     <div class=" markq container-fluid">
+                        <h4 class="card-title">ACTIVE CASES</h4>
                         <h1>
-                            <marquee><button type="button" class="btn btn-primary">Andaman and Nicobar Islands</button>
-                                <button type="button" class="btn btn-primary">Andhra Pradesh</button>
-                                <button type="button" class="btn btn-primary">Arunachal Pradesh</button>
-                                <button type="button" class="btn btn-primary">Assam</button>
-                                <button type="button" class="btn btn-primary">Bihar</button>
-                                <button type="button" class="btn btn-primary">Chandigarh</button>
-                                <button type="button" class="btn btn-primary">Chhattisgarh</button>
-                                <button type="button" class="btn btn-primary">Dadra and Nagar Haveli and Daman and Diu</button>
-                                <button type="button" class="btn btn-primary">Delhi</button>
-                                <button type="button" class="btn btn-primary">Goa</button>
-                                <button type="button" class="btn btn-primary">Gujarat</button>
-                                <button type="button" class="btn btn-primary">Haryana</button>
-                                <button type="button" class="btn btn-primary">Himachal Pradesh</button>
-                                <button type="button" class="btn btn-primary">Jammu and Kashmir</button>
-                                <button type="button" class="btn btn-primary">Jharkhand</button>
-                                <button type="button" class="btn btn-primary">Karnataka</button>
-                                <button type="button" class="btn btn-primary">Kerala</button>
-                                <button type="button" class="btn btn-primary">Ladakh</button>
-                                <button type="button" class="btn btn-primary">Lakshadweep</button>
-                                <button type="button" class="btn btn-primary">Madhya Pradesh</button>
-                                <button type="button" class="btn btn-primary">Maharashtra</button>
-                                <button type="button" class="btn btn-primary">Manipur</button>
-                                <button type="button" class="btn btn-primary">Meghalaya</button>
-                                <button type="button" class="btn btn-primary">Mizoram</button>
-                                <button type="button" class="btn btn-primary">Nagaland</button>
-                                <button type="button" class="btn btn-primary">Odisha</button>
-                                <button type="button" class="btn btn-primary">Puducherry</button>
-                                <button type="button" class="btn btn-primary">Punjab</button>
-                                <button type="button" class="btn btn-primary">Rajasthan</button>
-                                <button type="button" class="btn btn-primary">Sikkim</button>
-                                <button type="button" class="btn btn-primary">Tamil Nadu</button>
-                                <button type="button" class="btn btn-primary">Telangana</button>
-                                <button type="button" class="btn btn-primary">Tripura</button>
-                                <button type="button" class="btn btn-primary">Uttar Pradesh</button>
-                                <button type="button" class="btn btn-primary">Uttarakhand</button>
-                                <button type="button" class="btn btn-primary">West Bengal</button>
 
+                            <marquee>
+
+                                {% for name,stat in states %}
+                                <button type="button" class="btn btn-primary">{{name}}:{{stat.active}}</button> {% endfor %}
                             </marquee>
                         </h1>
 
