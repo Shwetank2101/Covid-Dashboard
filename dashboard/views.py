@@ -44,7 +44,7 @@ def index(request):
     
     state=['Total', 'Andaman and Nicobar Islands', 'Andhra Pradesh', 'Arunachal Pradesh', 'Assam', 'Bihar', 'Chandigarh', 'Chhattisgarh', 'Dadra and Nagar Haveli and Daman and Diu', 'Delhi', 'Goa', 'Gujarat', 'Haryana', 'Himachal Pradesh', 'Jammu and Kashmir', 'Jharkhand', 'Karnataka', 'Kerala', 'Ladakh', 'Lakshadweep', 'Madhya Pradesh', 'Maharashtra', 'Manipur', 'Meghalaya', 'Mizoram', 'Nagaland', 'Odisha', 'Puducherry', 'Punjab', 'Rajasthan', 'Sikkim', 'State Unassigned', 'Tamil Nadu', 'Telangana', 'Tripura', 'Uttar Pradesh', 'Uttarakhand', 'West Bengal']
     check=[]
-    for i in range(1,len(state)):
+    for i in range(len(state)):
         if state[i]=='State Unassigned':
             continue
         # check[state[i]] = {'total':statewise[i]['confirmed'],'active':statewise[i]['active'],'recovered':statewise[i]['recovered'],'death':statewise[i]['deaths']}
