@@ -66,7 +66,7 @@ def state(request):
                  'recovered': statewise[i]['recovered'], 'deaths': statewise[i]['deaths']}
         d = {'city': value}
 
-    return render(request, 'state.html', d)
+    return render(request, 'index.html', d)
 
 
 def city(request):
@@ -123,6 +123,7 @@ def home(request):
     state = ['Total', 'Andaman and Nicobar Islands', 'Andhra Pradesh', 'Arunachal Pradesh', 'Assam', 'Bihar', 'Chandigarh', 'Chhattisgarh', 'Dadra and Nagar Haveli and Daman and Diu', 'Delhi', 'Goa', 'Gujarat', 'Haryana', 'Himachal Pradesh', 'Jammu and Kashmir', 'Jharkhand', 'Karnataka',
              'Kerala', 'Ladakh', 'Lakshadweep', 'Madhya Pradesh', 'Maharashtra', 'Manipur', 'Meghalaya', 'Mizoram', 'Nagaland', 'Odisha', 'Puducherry', 'Punjab', 'Rajasthan', 'Sikkim', 'State Unassigned', 'Tamil Nadu', 'Telangana', 'Tripura', 'Uttar Pradesh', 'Uttarakhand', 'West Bengal']
     check = []
+
     for i in range(len(state)):
         if state[i] == 'State Unassigned':
             continue
@@ -132,4 +133,4 @@ def home(request):
     context = {'name': ['total', 'active',
                         'recovered', 'dead'], 'states': check, 'confirmed': total_india, 'actve': active_india, 'recovered': recovered_india, 'deaths': dead_india}
 
-    return render(request, 'index.html', context)
+    return render(request, 'index.html', context,)

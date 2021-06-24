@@ -15,7 +15,7 @@
 </head>
 
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+                                                        @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
     * {
@@ -35,7 +35,7 @@
     }
     
     #center {
-        height: 1350px;
+        height: 1395px;
         margin-top: 60px;
         width: 65%;
     }
@@ -77,7 +77,8 @@
     
     .navbar-brand {
         color: white;
-        font-size: larger;
+        font-size: 30pt;
+        font-weight: bolder;
     }
     /* .....NavBar: Icon only with coloring/layout.....*/
     /*small/medium side display*/
@@ -197,6 +198,10 @@
         margin: auto;
     }
     
+    .btnhover:hover+.hide {
+        display: block;
+    }
+    
     .card-body {
         margin: 0% 0% 0% 3%;
         padding: 6% 0%;
@@ -262,14 +267,123 @@
         padding-left: 14pt;
     }
     
-    @media (max-width:850px) {
-        #right {
-            display: none;
-        }
-        #center {
-            width: 95% !important;
-        }
+    .helpline_outer {
+        display: flex;
+        background: #FFDC27;
+        position: relative;
+        top: 10px;
+        margin-bottom: 10px;
+        width: 95%;
+        margin: auto;
+        box-shadow: 12px 0px 19px 12px rgb(226, 222, 222, 222);
     }
+    
+    .helpline-title {
+        flex-direction: column;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-size: font-size: 0.93em;
+    }
+    
+    .helpline-title {
+        background: #31acce;
+        padding: 8px;
+        width: 83px;
+        font-weight: bolder;
+    }
+    
+    .helpline-block {
+        display: flex;
+        padding: 10px 40px;
+        font-weight: 500;
+    }
+    
+    .helpline_item {
+        display: flex;
+        align-items: center;
+        padding: 10px 40px;
+        border-right: 1px solid #C8C097;
+    }
+    
+    .name-number {
+        font-size: 0.857em;
+    }
+    
+    .freq {
+        margin-top: 20pt;
+        background: white;
+        height: 200pt;
+        box-shadow: 12px 0px 19px rgb(228, 226, 226);
+    }
+    
+    .name-number a {
+        display: block;
+        font-size: 1.5em;
+        font-weight: bolder;
+        color: #000;
+    }
+    
+    .helpline-block i {
+        min-width: 33px;
+        height: 33px;
+        margin-right: 9px;
+    }
+    
+    .helpline-block i,
+    .helpline-title i {
+        background-image: url(../images/covid/customer-icon.png);
+        background-repeat: no-repeat;
+        display: block;
+    }
+    
+    .ministry-icon {
+        background-position: -2px -158px;
+    }
+    
+    @media (max-width: 767px) {
+        @media (max-width: 767px) {
+            @media (max-width: 767px) {
+                @media (max-width: 767px) {
+                    @media (max-width: 767px) {
+                        .helpline_outer, .helpline-block {
+                            flex-wrap: wrap;
+                        }
+                        @media (max-width: 767px) {
+                            .helpline-title {
+                                width: 100%;
+                            }
+                            @media (max-width: 767px) {
+                                .helpline-block {
+                                    padding: 0px;
+                                }
+                                @media (max-width: 767px) {
+                                    .helpline_outer,
+                                    .helpline-block {
+                                        flex-wrap: wrap;
+                                    }
+                                    @media (max-width: 959px) {
+                                        .helpline-block {
+                                            padding: 10px 0;
+                                        }
+                                        @media (max-width: 767px) {
+                                            .helpline_item:nth-child(n-3) {
+                                                border-bottom: 1px solid #C8C097;
+                                            }
+                                            @media (max-width: 420px) {
+                                                .helpline_item {
+                                                    padding: 5px;
+                                                }
+                                                @media (max-width: 767px) {
+                                                    .helpline_item {
+                                                        width: 33.33%;
+                                                    }
+                                                    @media (max-width: 959px) {
+                                                        .helpline_item {
+                                                            flex-direction: column;
+                                                            text-align: center;
+                                                        }
 </style>
 
 <body>
@@ -332,7 +446,37 @@
                     </ul>
                 </div>
             </div>
-        </nav> -->
+        </nav>  -->
+
+        <div class="helpline_outer" id="helpline-contact">
+            <div class="helpline-title"> <span>HELPLINE NUMBERS</span></div>
+            <div class="helpline-block">
+                <div class="helpline_item">
+
+                    <div class="name-number"><a href="tel:1075" title="1075">1075</a> Health Ministry</div>
+                </div>
+                <div class="helpline_item">
+
+                    <div class="name-number"><a href="tel:1098" title="1098">1098</a> Child</div>
+                </div>
+                <div class="helpline_item">
+
+                    <div class="name-number"><a href="tel:08046110007" title="08046110007">08046110007</a> Mental Health</div>
+                </div>
+                <div class="helpline_item">
+
+                    <div class="name-number"><a href="tel:14567" title="14567">14567</a> Senior Citizens</div>
+                </div>
+                <div class="helpline_item">
+
+                    <div class="name-number"><a href="tel:14443" title="14443 ">14443 </a> Ayush Covid-19 Counselling</div>
+                </div>
+                <div class="helpline_item">
+
+                    <div class="name-number"><a href="https://api.whatsapp.com/send/?phone=919013151515&amp;text=Hi&amp;app_absent=0" target="_blank" class="ext" title="9013151515 (External Site that opens in a new window)">9013151515</a> MyGov Whatsapp Helpdesk</div>
+                </div>
+            </div>
+        </div>
 
 
 
@@ -341,7 +485,7 @@
 
             <div class="card1 md-4 shadow p-3">
                 <div class="card-body1">
-
+                    {% include "state.html" %}
 
                 </div>
             </div>
@@ -357,7 +501,7 @@
         <div id="center">
 
 
-            <div class="container-fluid" style="margin-top: 20pt ; height:auto;">
+            <div class="container-fluid" style="margin-top: 20pt ">
 
                 <!-- Card stats -->
                 <div class="card-deck row">
@@ -439,7 +583,7 @@
                         <marquee>
 
                             {% for name,stat in states %}
-                            <button type="button" class="btn btn-primary">{{name}}:{{stat.active}}</button> {% endfor %}
+                            <button type="button" class="btnhover btn btn-primary">{{name}}:{{stat.active}}</button> {% endfor %}
                         </marquee>
                     </h1>
 
@@ -447,6 +591,12 @@
 
                 <div class=" map container-fluid">
                     <h1>India Map</h1>
+
+                </div>
+
+                <div class=" map container-fluid">
+                    <h2>Frequently Asked Questions</h2>
+
 
                 </div>
 
@@ -464,16 +614,23 @@
 
             </div>
 
+
+
+
+
+
+
         </div>
+    </div>
 
 
 
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-        </script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
-        </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
 </body>
 
 </html>
