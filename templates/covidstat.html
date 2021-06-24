@@ -52,14 +52,10 @@
              <th scope="row">{{name}}</th>
              <th>{{stat}}</th>
            </tr>
-           <tr>
-             {% for value in stat %}
-             <th> {{value.confirmed}} </th>
-           </tr>
-           {% endfor %}
-         {% endfor %}
+             {% endfor %}
          </tbody>
        </table>
+       {{statewise}}
      </div>
      </div>
  </body>
