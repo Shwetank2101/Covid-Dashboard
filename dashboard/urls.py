@@ -6,5 +6,6 @@ urlpatterns = [
     path('data', views.index, name='index'),
     path('state',views.state,name='state'),
     path('city',views.city,name='city'),
+    # path('test',views.test,name='test'),
     path('', views.home, name='home')
 ]

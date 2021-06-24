@@ -50,19 +50,39 @@
 </select>
 <input type="submit" value="Submit">
 
-
-<br>
-{%  if city  %}
-{{city}}
-{% for citi in city%}
-{{citi}}
-<br>
+{% if tn_districts %}
+<div class="card mb-4 shadow-sm">
+  <div class="card-header">
+    <h5 class="my-0 font-weight-normal"><center>{{name}} District wise Report</center></h5>
+  </div>
+<table class="table table-striped table-light">
+<thead>
+<tr>
+  <th scope="col"><center>Districts</center></th>
+  <th scope="col"><center>Active</center></th>
+  <th scope="col"><center>Confirmed</center></th>
+  <th scope="col"><center>Recovered</center></th>
+  <th scope="col"><center>Deceased</center></th>
+  
+</tr>
+</thead>
+<tbody>
+{% for key, value in tn_districts.items %}
+<tr>
+  <th scope="row"><center>{{key}}</center></th>
+  <td><center>{{value.active}}</center></td>
+  <td><center>{{value.confirmed}}</center></td>
+  <td><center>{{value.recovered}}</center></td>
+  <td><center>{{value.deceased}}</center></td>
+</tr>
 {% endfor %}
-{% endif %}
- 
-    
-</form>
+</tbody>
+<br>
 
+{% endif %}
+<br>
+  
+</form>
 
 </body>
 </html>
