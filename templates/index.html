@@ -8,9 +8,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/style.css">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <title>COVID DASHBOARD</title>
 </head>
 
@@ -314,7 +318,7 @@
     .freq {
         margin-top: 20pt;
         background: white;
-        height: 200pt;
+        height: 320pt;
         box-shadow: 12px 0px 19px rgb(228, 226, 226);
     }
     
@@ -594,8 +598,50 @@
 
                 </div>
 
-                <div class=" map container-fluid">
+                <div class=" freq container-fluid">
                     <h2>Frequently Asked Questions</h2>
+                    <div class="accordion" id="accordionExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                              <h4>Who is eligible for the COVID-19 vaccine?</h4>
+                            </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                <div class="accordion-body" style="float: left;">
+                                    As of May 1, 2021, all people over 18 years are eligible for the COVID-19 vaccine. Please check your local state guidelines for more information. If you cannot pre-register online, please contact your local government health workers, who will refer you
+                                    to the government COVID-19 Vaccination Center for on-the-spot registration, appointment, verification, and vaccination on the same day. For more information, please visit: https://www.mohfw.gov.in/covid_vaccination/vaccination/faqs.html
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                              <H4>If I have already had COVID-19 and recovered, do I still need to get the COVID-19 vaccine?</H4>
+                            </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    Yes, you should get a COVID-19 vaccine, even if you’ve had COVID-19. The vaccine will still help in developing a strong immune response against the disease. But wait for 3 months after being infected with COVID-19 before getting the vaccine. We do not
+                                    know yet if people who have had COVID-19 will have enough of an immune response to protect them from getting COVID-19 again. Even if there is some protection, it is not known how long it will last. This is why people
+                                    who have had COVID-19 should still get a COVID-19 vaccine. For more information, please visit: https://www.mohfw.gov.in/covid_vaccination/vaccination/faqs.html
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                              <h4>If I currently have COVID-19, should I get the vaccine now?</h4>
+                            </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    No, people with confirmed or suspected COVID-19 should be in isolation for at least 10 days. Having infected people at the vaccination site would increase the risk of spreading the virus. Since people with COVID-19 develop some immunity against the disease,
+                                    the Ministry of Health and Family Welfare, Government of India (MoHFW, GoI) recommends deferral of vaccination for 3 months after recovery.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
 
                 </div>
