@@ -49,7 +49,7 @@ def index(request):
             continue
         check.append([state[i],{'confirmed':statewise[i]['confirmed'],'active':statewise[i]['active'],'recovered':statewise[i]['recovered'],'deaths':statewise[i]['deaths']}])
 
-    context={'name': ['total', 'active', 'recovered', 'dead'],'states':check,'city':uttarpradesh_district,'statewise':tn_districts}
+    context={'name': ['total', 'active', 'recovered', 'dead'],'states':check}
 
     return render(request, 'covidstat.html', context)
 
