@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+ <html lang="en">
+ <head>
+ 
+   <title>Covid Statistics</title>
+     
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+      <meta name="description" content="">
+      <meta name="keywords" content="">
+      <meta name="team" content="">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+ 
+  </head>
+  <body>
+     <!-- <div class="card mb-4 shadow-sm">
+       <div class="card-header">
+       </div>
+       <div class="card-body">
+         <ul class="list-unstyled mt-3 mb-4">
+         {%for name,stat in states%}
+         {{name}}
+         {%for value in stat%}
+         {{value}}
+         {%endfor%}
+         <br>
+         {%endfor%}
+ 
+         </ul>
+       </div>
+     </div> -->
+ 
+     <div class="card mb-4 shadow-sm">
+       <div class="card-header">
+         <h5 class="my-0 font-weight-normal"><center>India State wise Report</center></h5>
+       </div>
+     <br>
+     <div class="table-responsive table-body">
+       <table class="table table-hover table-striped table-light">
+         <!-- <thead>
+           <tr>
+             <th class="col-md-3" scope="col">State</th>
+             <th class="col-md-3" scope="col">Confirmed</th>
+             <th class="col-md-3" scope="col">Active</th>
+             <th class="col-md-3" scope="col">Recovered</th>
+             <th class="col-md-3" scope="col">Dead</th>
+           </tr>
+         </thead> -->
+         <tbody>
+             {% for name,stat in states %}
+           <tr>
+             <th scope="row">{{name}}</th>
+             <th>{{stat}}</th>
+           </tr>
+           <tr>
+             {% for value in stat %}
+             <th> {{value.confirmed}} </th>
+           </tr>
+           {% endfor %}
+         {% endfor %}
+         </tbody>
+       </table>
+     </div>
+     </div>
+ </body>
+  </html>
+ 
+ 
+ 
+ 

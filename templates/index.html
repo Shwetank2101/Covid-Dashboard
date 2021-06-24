@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <title>COVID DASHBOARD</title>
+</head>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+    * {
+        box-sizing: border-box;
+    }
+    
+    body {
+        margin: 0px;
+        padding: 0px;
+        text-align: center;
+    }
+    
+    #wrapper {
+        padding: 10px;
+        background: #f1f1ef;
+    }
+    
+    #center {
+        height: 1350px;
+        margin-top: 60px;
+        margin-right: 300px;
+        width: 55%;
+        margin: auto;
+    }
+    
+    #left1 {
+        margin-top: 10pt;
+        width: 20px;
+        float: left;
+    }
+    
+    #right {
+        float: right;
+        width: 270px;
+        margin-top: 10pt;
+    }
+    
+    #header {
+        height: 60pt;
+        position: sticky;
+    }
+    
+    body,
+    html {
+        height: 100%;
+    }
+    /* remove outer padding */
+    
+    .main .row {
+        padding: 0px;
+        margin: 0px;
+    }
+    /*Remove rounded coners*/
+    
+    .main {
+        padding: 10px 10px 0 10px;
+    }
+    
+    .navbar {
+        background: #31acce;
+        color: white;
+        box-shadow: 10px 10px 19px rgb(209, 207, 207);
+        height: 100%;
+        margin: 20pt;
+    }
+    
+    .nav {
+        width: 230px;
+    }
+    
+    .nav li :hover {
+        color: #31acce;
+    }
+    /* .....NavBar: Icon only with coloring/layout.....*/
+    /*small/medium side display*/
+    
+    @media (min-width: 768px) {
+        /*Allow main to be next to Nav*/
+        <!-- -->/*lets nav bar to be showed on mouseover*/
+        nav.sidebar:hover+.main {
+            margin-left: 200px;
+        }
+        /*Center Brand*/
+        nav.sidebar.navbar.sidebar>.container .navbar-brand,
+        .navbar>.container-fluid .navbar-brand {
+            margin-left: 0px;
+        }
+        /*Center Brand*/
+        nav.sidebar .navbar-brand,
+        nav.sidebar .navbar-header {
+            text-align: center;
+            width: 100%;
+            margin-left: 0px;
+        }
+        /*Center Icons*/
+        nav.sidebar a {
+            padding-right: 13px;
+        }
+        /*adds border top to first nav box */
+        nav.sidebar .navbar-nav>li:first-child {
+            border-top: 1px #0296d1 solid;
+        }
+        /*adds border to bottom nav boxes*/
+        nav.sidebar .navbar-nav>li {
+            border-bottom: 1px #0296d1 solid;
+        }
+        /* Colors/style dropdown box*/
+        nav.sidebar .navbar-nav .open .dropdown-menu {
+            position: static;
+            float: none;
+            width: auto;
+            margin-top: 0;
+            background-color: transparent;
+            border: 0;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+        }
+        /*allows nav box to use 100% width*/
+        nav.sidebar .navbar-collapse,
+        nav.sidebar .container-fluid {
+            padding: 0 0px 0 0px;
+        }
+        /*colors dropdown box text */
+        .navbar-inverse .navbar-nav .open .dropdown-menu>li>a {
+            color: #48adc9;
+        }
+        /*gives sidebar width/height*/
+        nav.sidebar {
+            width: 250px;
+            height: 100% !important;
+            float: left;
+            z-index: 8000;
+            margin-bottom: 0px;
+        }
+        /*give sidebar 100% width;*/
+        nav.sidebar li a {
+            width: 100%;
+            color: white;
+            font-size: 15px;
+        }
+        /* Move nav to full on mouse over*/
+        nav.sidebar:hover {
+            margin-left: 0px;
+        }
+        /*for hiden things when navbar hidden*/
+        .forAnimate {
+            opacity: 0;
+        }
+    }
+    /* .....NavBar: Fully showing nav bar..... */
+    
+    @media (min-width: 1330px) {
+        /*Allow main to be next to Nav*/
+        .main {
+            width: calc(100% - 200px);
+            /*keeps 100% minus nav size*/
+            margin-left: 200px;
+        }
+        /*Show all nav*/
+        nav.sidebar {
+            margin-left: 0px;
+            float: left;
+        }
+        /*Show hidden items on nav*/
+        nav.sidebar .forAnimate {
+            opacity: 1;
+        }
+    }
+    
+    nav.sidebar .navbar-nav .open .dropdown-menu>li>a:hover,
+    nav.sidebar .navbar-nav .open .dropdown-menu>li>a:focus {
+        color: #CCC;
+        background-color: transparent;
+    }
+    
+    nav:hover .forAnimate {
+        opacity: 1;
+        color: yellow;
+    }
+    
+    section {
+        padding-left: 15px;
+    }
+    
+    .left-sidebar1 {
+        background: #2b6777;
+        width: 190pt;
+        height: 100%;
+        box-shadow: 12px 0px 19px rgb(170, 169, 169);
+        margin: 0;
+        padding: 0;
+        position: fixed;
+    }
+    
+    .left-sidebar1 a {
+        font-size: 13px;
+        padding: 9px;
+        border-bottom: 1px solid rgba(7, 103, 158, 0.925);
+        font-family: 'Roboto Mono', monospace;
+        font-weight: 600;
+        color: rgb(255, 255, 255);
+        display: block;
+    }
+    
+    .left-sidebar1 a {
+        color: white;
+        text-align: left;
+    }
+    
+    .left-sidebar1 a:hover {
+        padding-left: 14pt;
+        color: rgb(224, 221, 221);
+    }
+    
+    .search {
+        padding: 20pt 20pt 20pt 20pt;
+        background: white;
+        height: 70pt;
+        box-shadow: 12px 0px 19px rgb(228, 226, 226);
+    }
+    /* Style the submit button */
+    
+    .map {
+        margin-top: 20pt;
+        background: white;
+        height: 400pt;
+        box-shadow: 12px 0px 19px rgb(228, 226, 226);
+    }
+    
+    .markq {
+        height: 70pt;
+        margin-top: 20pt;
+        background: white;
+        box-shadow: 12px 0px 19px rgb(228, 226, 226);
+    }
+    
+    .text {
+        text-align: start;
+    }
+    
+    .announcements {
+        margin-right: 10px;
+    }
+    
+    .card1 {
+        margin-top: 10pt;
+        background: white;
+        height: 300pt;
+        width: 440pt;
+        box-shadow: 12px 0px 19px rgb(228, 226, 226);
+    }
+    
+    .news {
+        background: #0ec0b9;
+        border: 3px solid black;
+        font-size: 15pt;
+    }
+    
+    .card {
+        box-shadow: 12px 0px 19px rgb(228, 226, 226);
+    }
+    
+    .card-body {
+        margin: 0% 0% 0% 3%;
+        padding: 6% 0%;
+    }
+    
+    .eventDate {
+        text-align: center;
+        padding: 0;
+        margin-bottom: -40px;
+        font-size: 10pt;
+    }
+    
+    .event {
+        background-color: #6b026b;
+        color: #fff;
+        font-weight: 400;
+        width: 40px;
+        font-size: 10pt;
+    }
+    
+    .right-sidebar {
+        margin-top: 30pt;
+        display: block;
+        background: white;
+        box-shadow: 12px 0px 19px rgb(228, 226, 226);
+    }
+    
+    .right-sidebar a {
+        font-size: 13px;
+        padding-top: 10pt;
+        padding: 6px;
+        line-height: 2;
+        background-color: transparent;
+        font-family: 'Roboto Mono', monospace;
+        font-weight: 600;
+        color: rgba(0, 0, 0, .84);
+        border: gray;
+        display: grid;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        border-top: 1px solid rgba(225, 225, 225, 0.05);
+    }
+    
+    .right-sidebar a {
+        color: rgba(0, 0, 0, .84);
+        text-align: left;
+        flex: 1;
+    }
+    
+    .right-sidebar a:hover {
+        padding-left: 14pt;
+    }
+    
+    @media (max-width:850px) {
+        #right {
+            display: none;
+        }
+        #center {
+            width: 95% !important;
+        }
+    }
+</style>
+
+<body>
+    <div id="wrapper">
+        <!-- <div id="header">
+
+            <nav class="navbar navbar-light sticky-top" style="background-color: #C19434;">
+                <a class="navbar-brand" href="#">Covid Dashboard</a> -->
+        <!-- <button class="navbar-toggler" style="outline:0px" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon" style="outline:0px"><i class="fa fa-navicon" style="font-size:20px;padding-bottom:20pt;color:black;"></i></span>
+        </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item ">
+                            <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="#">My courses</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="#">My Profile</a>
+                        </li>
+
+                    </ul> -->
+        <!-- </div> -->
+
+        <!-- </nav> -->
+        <!-- </div> -->
+        <nav class="navbar  sidebar" role="navigation">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" style="color:white" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <a class="navbar-brand" style="color: white; font-size:22px" href="#"><b>COVID DASHBOARD</b></a>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#">Home<span style="font-size:16px;" ></span></a></li>
+                        <li><a href="#">Profile<span style="font-size:16px;" ></span></a></li>
+                        <li><a href="#">Messages<span style="font-size:16px;" ></span></a></li>
+
+                        <li><a href="#">Home<span style="font-size:16px;" ></span></a></li>
+                        <li><a href="#">Profile<span style="font-size:16px;"></span></a></li>
+                        <li><a href="#">Messages<span style="font-size:16px;" ></span></a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div id="left">
+
+            <!-- <div class="sidebar">
+
+                <a href="#">A</a><br>
+                <a href="#">B</a><br>
+                <a href="#">C</a><br>
+                <a href="#">D</a><br>
+                <a href="#">E</a><br>
+                <a href="#">F</a><br>
+
+
+            </div> -->
+
+
+
+
+
+
+
+
+        </div>
+
+        <div id="right">
+            <!-- <div class="search">
+                <input type="text" name="s" autocomplete="off" class="form-control input-error" placeholder="Type your search">
+
+            </div> -->
+
+
+
+
+
+
+            <div class="announcements">
+                <div class="box">
+                    <div class="card1 md-4 shadow p-3" style="width: 220pt; margin-right:10pt; ">
+                        <div class="card-body1">
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+
+
+
+        <div id="center">
+
+
+            <div class="container-fluid" style="margin-top: 20pt ; height:auto;">
+
+                <!-- Card stats -->
+                <div class="card-deck row">
+
+                    <div class="row">
+                        <!-- Card -->
+                        <div class="card">
+
+                            <!--Card content-->
+                            <div class="card-body">
+
+                                <!--Title-->
+                                <h4 class="card-title">1 Card title</h4>
+                                <!--Text-->
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                                <button type="button" class="btn btn-light-blue btn-md">Read more</button>
+
+                            </div>
+
+                        </div>
+
+                        <div class="card">
+
+                            <!--Card content-->
+                            <div class="card-body">
+
+                                <!--Title-->
+                                <h4 class="card-title">1 Card title</h4>
+                                <!--Text-->
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                                <button type="button" class="btn btn-light-blue btn-md">Read more</button>
+
+                            </div>
+
+                        </div>
+                        <div class="card">
+
+                            <!--Card content-->
+                            <div class="card-body">
+
+                                <!--Title-->
+                                <h4 class="card-title">1 Card title</h4>
+                                <!--Text-->
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                                <button type="button" class="btn btn-light-blue btn-md">Read more</button>
+
+                            </div>
+
+                        </div>
+                        <div class="card">
+
+                            <!--Card content-->
+                            <div class="card-body">
+
+                                <!--Title-->
+                                <h4 class="card-title">1 Card title</h4>
+                                <!--Text-->
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                                <button type="button" class="btn btn-light-blue btn-md">Read more</button>
+
+                            </div>
+
+                        </div>
+
+
+
+                    </div>
+
+
+
+
+
+                    <div class=" markq container-fluid">
+                        <h1>
+                            <marquee><button type="button" class="btn btn-primary">Primary</button>
+                                <button type="button" class="btn btn-primary">Primary</button>
+                                <button type="button" class="btn btn-primary">Primary</button>
+                                <button type="button" class="btn btn-primary">Primary</button>
+                                <button type="button" class="btn btn-primary">Primary</button>
+                                <button type="button" class="btn btn-primary">Primary</button>
+                                <button type="button" class="btn btn-primary">Primary</button>
+                                <button type="button" class="btn btn-primary">Primary</button>
+                                <button type="button" class="btn btn-primary">Primary</button>
+                                <button type="button" class="btn btn-primary">Primary</button>
+                                <button type="button" class="btn btn-primary">Primary</button>
+                                <button type="button" class="btn btn-primary">Primary</button>
+
+                            </marquee>
+                        </h1>
+
+                    </div>
+
+                    <div class=" map container-fluid">
+                        <h1>India Map</h1>
+
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                </div>
+
+            </div>
+
+
+
+
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+            </script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+            </script>
+</body>
+
+</html>
