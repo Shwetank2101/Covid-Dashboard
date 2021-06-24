@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+{% load humanize %}
 
 <head>
     <meta charset="UTF-8">
@@ -36,20 +37,12 @@
     #center {
         height: 1350px;
         margin-top: 60px;
-        margin-right: 300px;
-        width: 55%;
-        margin: auto;
-    }
-    
-    #left1 {
-        margin-top: 10pt;
-        width: 20px;
-        float: left;
+        width: 65%;
     }
     
     #right {
         float: right;
-        width: 270px;
+        width: 300pt;
         margin-top: 10pt;
     }
     
@@ -82,89 +75,12 @@
         margin: 20pt;
     }
     
-    .nav {
-        width: 230px;
-    }
-    
-    .nav li :hover {
-        color: #31acce;
+    .navbar-brand {
+        color: white;
+        font-size: larger;
     }
     /* .....NavBar: Icon only with coloring/layout.....*/
     /*small/medium side display*/
-    
-    @media (min-width: 768px) {
-        /*Allow main to be next to Nav*/
-        <!-- -->/*lets nav bar to be showed on mouseover*/
-        nav.sidebar:hover+.main {
-            margin-left: 200px;
-        }
-        /*Center Brand*/
-        nav.sidebar.navbar.sidebar>.container .navbar-brand,
-        .navbar>.container-fluid .navbar-brand {
-            margin-left: 0px;
-        }
-        /*Center Brand*/
-        nav.sidebar .navbar-brand,
-        nav.sidebar .navbar-header {
-            text-align: center;
-            width: 100%;
-            margin-left: 0px;
-        }
-        /*Center Icons*/
-        nav.sidebar a {
-            padding-right: 13px;
-        }
-        /*adds border top to first nav box */
-        nav.sidebar .navbar-nav>li:first-child {
-            border-top: 1px #0296d1 solid;
-        }
-        /*adds border to bottom nav boxes*/
-        nav.sidebar .navbar-nav>li {
-            border-bottom: 1px #0296d1 solid;
-        }
-        /* Colors/style dropdown box*/
-        nav.sidebar .navbar-nav .open .dropdown-menu {
-            position: static;
-            float: none;
-            width: auto;
-            margin-top: 0;
-            background-color: transparent;
-            border: 0;
-            -webkit-box-shadow: none;
-            box-shadow: none;
-        }
-        /*allows nav box to use 100% width*/
-        nav.sidebar .navbar-collapse,
-        nav.sidebar .container-fluid {
-            padding: 0 0px 0 0px;
-        }
-        /*colors dropdown box text */
-        .navbar-inverse .navbar-nav .open .dropdown-menu>li>a {
-            color: #48adc9;
-        }
-        /*gives sidebar width/height*/
-        nav.sidebar {
-            width: 250px;
-            height: 100% !important;
-            float: left;
-            z-index: 8000;
-            margin-bottom: 0px;
-        }
-        /*give sidebar 100% width;*/
-        nav.sidebar li a {
-            width: 100%;
-            color: white;
-            font-size: 15px;
-        }
-        /* Move nav to full on mouse over*/
-        nav.sidebar:hover {
-            margin-left: 0px;
-        }
-        /*for hiden things when navbar hidden*/
-        .forAnimate {
-            opacity: 0;
-        }
-    }
     /* .....NavBar: Fully showing nav bar..... */
     
     @media (min-width: 1330px) {
@@ -263,8 +179,8 @@
     .card1 {
         margin-top: 10pt;
         background: white;
-        height: 300pt;
-        width: 440pt;
+        height: 500pt;
+        width: 280pt;
         box-shadow: 12px 0px 19px rgb(228, 226, 226);
     }
     
@@ -277,7 +193,7 @@
     .card {
         box-shadow: 12px 0px 19px rgb(228, 226, 226);
         height: 80pt;
-        width: 120pt;
+        width: 136pt;
         margin: auto;
     }
     
@@ -293,6 +209,10 @@
     .card-text {
         margin: 20pt;
         font-size: medium;
+    }
+    
+    .card-deck {
+        margin: auto;
     }
     
     .eventDate {
@@ -378,9 +298,16 @@
 
         <!-- </nav> -->
         <!-- </div> -->
-        <nav class="navbar  sidebar" role="navigation">
+        <nav class="navbar ">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    COVID DASHBOARD
+                </a>
+            </div>
+        </nav>
+        <!-- <nav class="navbar  sidebar" role="navigation">
             <div class="container-fluid">
-                <!-- Brand and toggle get grouped for better mobile display -->
+               
                 <div class="navbar-header">
                     <button type="button" style="color:white" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
                         <span class="sr-only">Toggle navigation</span>
@@ -391,7 +318,7 @@
                     </button>
                     <a class="navbar-brand" style="color: white; font-size:22px" href="#"><b>COVID DASHBOARD</b></a>
                 </div>
-                <!-- Collect the nav links, forms, and other content for toggling -->
+                
                 <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
                     <ul class="nav navbar-nav">
                         <li><a href="#">Home<span style="font-size:16px;" ></span></a></li>
@@ -405,55 +332,24 @@
                     </ul>
                 </div>
             </div>
-        </nav>
-
-        <div id="left">
-
-            <!-- <div class="sidebar">
-
-                <a href="#">A</a><br>
-                <a href="#">B</a><br>
-                <a href="#">C</a><br>
-                <a href="#">D</a><br>
-                <a href="#">E</a><br>
-                <a href="#">F</a><br>
+        </nav> -->
 
 
-            </div> -->
-
-
-
-
-
-
-
-
-        </div>
 
         <div id="right">
-            <!-- <div class="search">
-                <input type="text" name="s" autocomplete="off" class="form-control input-error" placeholder="Type your search">
-
-            </div> -->
 
 
+            <div class="card1 md-4 shadow p-3">
+                <div class="card-body1">
 
 
-
-
-            <div class="announcements">
-                <div class="box">
-                    <div class="card1 md-4 shadow p-3" style="width: 220pt; margin-right:10pt; ">
-                        <div class="card-body1">
-
-
-                        </div>
-                    </div>
                 </div>
-
-
             </div>
         </div>
+
+
+
+
 
 
 
@@ -529,53 +425,55 @@
 
 
                     </div>
-
-
-
-
-
-                    <div class=" markq container-fluid">
-                        <h4 class="card-title">ACTIVE CASES</h4>
-                        <h1>
-
-                            <marquee>
-
-                                {% for name,stat in states %}
-                                <button type="button" class="btn btn-primary">{{name}}:{{stat.active}}</button> {% endfor %}
-                            </marquee>
-                        </h1>
-
-                    </div>
-
-                    <div class=" map container-fluid">
-                        <h1>India Map</h1>
-
-                    </div>
+                </div>
 
 
 
 
 
 
+                <div class=" markq container-fluid">
+                    <h4 class="card-title">ACTIVE CASES</h4>
+                    <h1>
 
+                        <marquee>
 
-
-
-
-
+                            {% for name,stat in states %}
+                            <button type="button" class="btn btn-primary">{{name}}:{{stat.active}}</button> {% endfor %}
+                        </marquee>
+                    </h1>
 
                 </div>
 
+                <div class=" map container-fluid">
+                    <h1>India Map</h1>
+
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
             </div>
 
+        </div>
 
 
 
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-            </script>
-            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
-            </script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+        </script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+        </script>
 </body>
 
 </html>
