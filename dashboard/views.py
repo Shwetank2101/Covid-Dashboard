@@ -5,9 +5,11 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User, auth
 from django.views.decorators.csrf import csrf_exempt
 import requests
-# from bs4 import BeautifulSoup
-# import datetime
-
+import pandas as pd
+import io
+import datetime
+from datetime import date
+from datetime import timedelta
 
 # Create your views here.
 
@@ -98,6 +100,39 @@ def city(request):
         tn_districts = {'tn_districts': tn_districts, 'name': value}
     return render(request, 'city.html', tn_districts)
 
+def vaccination(request):
+    req = requests.get(
+        "https://api.rootnet.in/covid19-in/stats/testing/history"
+    )
+    req = req.json()
+    req=req['data']
+    day1=req[-1]['totalSamplesTested']
+    day2=req[-2]['totalSamplesTested']
+    today=day1-day2
+
+
+    vaccine=requests.get(
+            "http://api.covid19india.org/csv/latest/vaccine_doses_statewise_v2.csv"
+        ).content
+    vaccine=pd.read_csv(io.StringIO(vaccine.decode('utf-8')))
+
+    firstdose={}
+    seconddose={}
+    state = ['Total', 'Andaman and Nicobar Islands', 'Andhra Pradesh', 'Arunachal Pradesh', 'Assam', 'Bihar', 'Chandigarh', 'Chhattisgarh', 'Dadra and Nagar Haveli and Daman and Diu', 'Delhi', 'Goa', 'Gujarat', 'Haryana', 'Himachal Pradesh', 'Jammu and Kashmir', 'Jharkhand', 'Karnataka',
+                'Kerala', 'Ladakh', 'Lakshadweep', 'Madhya Pradesh', 'Maharashtra', 'Manipur', 'Meghalaya', 'Mizoram', 'Nagaland', 'Odisha', 'Puducherry', 'Punjab', 'Rajasthan', 'Sikkim', 'Tamil Nadu', 'Telangana', 'Tripura', 'Uttar Pradesh', 'Uttarakhand', 'West Bengal']
+        
+    for i in range(1,39):
+        firstdose[vaccine.iloc[-i]['State']]=vaccine.iloc[-i]['First Dose Administered']-vaccine.iloc[-i-38]['First Dose Administered'] 
+        seconddose[vaccine.iloc[-i]['State']]=vaccine.iloc[-i]['Second Dose Administered']-vaccine.iloc[-i-38]['Second Dose Administered'] 
+
+    context=[]
+    for i in state:
+        context.append({'state':i,'first':firstdose[i],'second':seconddose[i]})
+
+
+    context={'today':today,'day':req[-1]['day'],'vaccine':vaccine,'state':state,'context':context,'date':date}
+    return render(request, 'vaccination.html', context)
+    
 
 def home(request):
 
