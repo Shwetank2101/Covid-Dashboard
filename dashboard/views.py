@@ -168,4 +168,23 @@ def home(request):
     context = {'name': ['total', 'active',
                         'recovered', 'dead'], 'states': check, 'confirmed': total_india, 'actve': active_india, 'recovered': recovered_india, 'deaths': dead_india}
 
+
+    #state
+    response = requests.get('https://api.covid19india.org/data.json')
+    resp = response.json()
+    statewise = resp['statewise']
+    if request.method == 'POST':
+        value = request.POST.get('city')
+        i = 0
+        ind = ''
+        for k in statewise:
+            if k['state'] == value:
+                ind = i
+                break
+            i = i + 1
+        # value=statewise[i]
+        value = {'confirmed': statewise[i]['confirmed'], 'active': statewise[i]['active'],
+                 'recovered': statewise[i]['recovered'], 'deaths': statewise[i]['deaths']}
+        context['city'] = value
+
     return render(request, 'index.html', context,)
