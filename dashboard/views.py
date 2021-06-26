@@ -173,8 +173,14 @@ def home(request):
     response = requests.get('https://api.covid19india.org/data.json')
     resp = response.json()
     statewise = resp['statewise']
+
+    #city
+    districtwise = requests.get('https://api.covid19india.org/state_district_wise.json')
+    districtwise = districtwise.json()
+    tn_districts = {}
     if request.method == 'POST':
         value = request.POST.get('city')
+        value1 = value
         i = 0
         ind = ''
         for k in statewise:
@@ -186,5 +192,28 @@ def home(request):
         value = {'confirmed': statewise[i]['confirmed'], 'active': statewise[i]['active'],
                  'recovered': statewise[i]['recovered'], 'deaths': statewise[i]['deaths']}
         context['city'] = value
+
+        
+        tn_districts = districtwise[value1]['districtData']
+        t = tn_districts
+        key = 0
+        final = {}
+        ar = list(t.keys())
+        temp = 0
+        while(len(list(t.keys())) != 0):
+            key = 0
+            ar = list(t.keys())
+            temp = 0
+            for i in range(len(ar)-1):
+                for j in range(i+1, len(ar)):
+                    # print(t[ar[i]]['confirmed'])
+                    if t[ar[i]]['confirmed'] > temp:
+                        temp = t[ar[i]]['confirmed']
+                        key = i
+            final[ar[key]] = t[ar[key]]
+            del t[ar[key]]
+        tn_districts = final
+        context['tn_districts']=tn_districts
+        context['name1']=value1
 
     return render(request, 'index.html', context,)
