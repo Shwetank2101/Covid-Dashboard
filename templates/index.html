@@ -167,10 +167,11 @@
     }
     /* Style the submit button */
     
-    .map {
+    .map1 {
         margin-top: 20pt;
+        padding-top:10pt;
         background: white;
-        height: 400pt;
+        height: 270pt;
         box-shadow: 12px 0px 19px rgb(228, 226, 226);
     }
     
@@ -474,30 +475,7 @@
 
 <body>
     <div id="wrapper">
-        <!-- <div id="header">
-
-            <nav class="navbar navbar-light sticky-top" style="background-color: #C19434;">
-                <a class="navbar-brand" href="#">Covid Dashboard</a> -->
-        <!-- <button class="navbar-toggler" style="outline:0px" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon" style="outline:0px"><i class="fa fa-navicon" style="font-size:20px;padding-bottom:20pt;color:black;"></i></span>
-        </button>
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item ">
-                            <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item ">
-                            <a class="nav-link" href="#">My courses</a>
-                        </li>
-                        <li class="nav-item ">
-                            <a class="nav-link" href="#">My Profile</a>
-                        </li>
-
-                    </ul> -->
-        <!-- </div> -->
-
-        <!-- </nav> -->
-        <!-- </div> -->
+   
         <nav class="navbar ">
             <div class="container">
                 <a class="navbar-brand" href="#">
@@ -505,34 +483,7 @@
                 </a>
             </div>
         </nav>
-        <!-- <nav class="navbar  sidebar" role="navigation">
-            <div class="container-fluid">
-               
-                <div class="navbar-header">
-                    <button type="button" style="color:white" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <a class="navbar-brand" style="color: white; font-size:22px" href="#"><b>COVID DASHBOARD</b></a>
-                </div>
-                
-                <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                        <li><a href="#">Home<span style="font-size:16px;" ></span></a></li>
-                        <li><a href="#">Profile<span style="font-size:16px;" ></span></a></li>
-                        <li><a href="#">Messages<span style="font-size:16px;" ></span></a></li>
-
-                        <li><a href="#">Home<span style="font-size:16px;" ></span></a></li>
-                        <li><a href="#">Profile<span style="font-size:16px;"></span></a></li>
-                        <li><a href="#">Messages<span style="font-size:16px;" ></span></a></li>
-
-                    </ul>
-                </div>
-            </div>
-        </nav>  -->
+       
 
         <div class="helpline_outer" id="helpline-contact">
             <div class="helpline-title"> <span>HELPLINE NUMBERS</span></div>
@@ -875,17 +826,8 @@
 
                 </div>
 
-                <div class=" map container-fluid">
-                    <h1>India Map</h1>
-                    <h1>Total Test Done on {{day}} is  {{today}}</h1>
-                        <br>
-                        <br>
-                        Total first dose on {{day}}  - {{indiafirst}}
-                        <br>
-                        <br>
-                        Total second dose on {{day}}  - {{indiasecond}}
-                        <br>
-                        <br>
+                <div class=" map1 container-fluid">
+                    
 
                         <script>
     window.onload = function () {
@@ -955,11 +897,15 @@
     }
     </script>
     </head>
-    <body>
+ 
     <div id="chartContainer" style="height: 300px; width: 100%;"></div>
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 
                 </div>
+
+
+                 <div class=" map1 container-fluid"></div>
+                 
                 <div class=" freq container-fluid">
                     <h2>Frequently Asked Questions</h2>
                     <div class="accordion" id="accordionExample">
@@ -1027,6 +973,7 @@
             </div>
 
 
+        </div>
         </div>
 
 
