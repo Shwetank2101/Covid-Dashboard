@@ -803,6 +803,87 @@
 
                 <div class=" map container-fluid">
                     <h1>India Map</h1>
+                    <h1>Total Test Done on {{day}} is  {{today}}</h1>
+                        <br>
+                        <br>
+                        Total first dose on {{day}}  - {{indiafirst}}
+                        <br>
+                        <br>
+                        Total second dose on {{day}}  - {{indiasecond}}
+                        <br>
+                        <br>
+
+                        <script>
+    window.onload = function () {
+    
+    var chart = new CanvasJS.Chart("chartContainer", {
+      animationEnabled: true,
+      title:{
+        text: "Vaccine dose in India"
+      },	
+      axisY: {
+        title: "Vaccine Dose",
+        titleFontColor: "#4F81BC",
+        lineColor: "#4F81BC",
+        labelFontColor: "#4F81BC",
+        tickColor: "#4F81BC"
+      },
+      axisY2: {
+        title: "Millions of Barrels/day",
+        titleFontColor: "#C0504E",
+        lineColor: "#C0504E",
+        labelFontColor: "#C0504E",
+        tickColor: "#C0504E"
+      },	
+      toolTip: {
+        shared: true
+      },
+      legend: {
+        cursor:"pointer",
+        itemclick: toggleDataSeries
+      },
+      data: [{
+        type: "column",
+        name: "First dose",
+        legendText: "First Dose",
+        showInLegend: true, 
+        dataPoints:[
+        {% for val in context %}
+          {y : {{val.first}}, label: '{{val.state}}' },
+        {% endfor %}
+        ]
+      },
+      {
+        type: "column",	
+        name: "Second dose",
+        legendText: "Second dose",
+        axisYType: "secondary",
+        showInLegend: true,
+        dataPoints:[
+        {% for val in context %}
+          {y : {{val.second}}, label: '{{val.state}}' },
+        {% endfor %}
+        ]
+      }]
+    });
+    chart.render();
+    
+    function toggleDataSeries(e) {
+      if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+        e.dataSeries.visible = false;
+      }
+      else {
+        e.dataSeries.visible = true;
+      }
+      chart.render();
+    }
+    
+    }
+    </script>
+    </head>
+    <body>
+    <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 
                 </div>
                 <div class=" freq container-fluid">
@@ -849,6 +930,7 @@
                             </div>
                         </div>
                     </div>
+
 
 
 

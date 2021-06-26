@@ -169,7 +169,7 @@ def home(request):
                                  ['active'], 'recovered':statewise[i]['recovered'], 'deaths':statewise[i]['deaths']}])
 
     context = {'name': ['total', 'active',
-                        'recovered', 'dead'], 'states': check, 'confirmed': total_india, 'actve': active_india, 'recovered': recovered_india, 'deaths': dead_india}
+                        'recovered', 'dead'], 'states': check, 'confirmed': total_india, 'active': active_india, 'recovered': recovered_india, 'deaths': dead_india}
 
 
     #state
@@ -218,5 +218,50 @@ def home(request):
         tn_districts = final
         context['tn_districts']=tn_districts
         context['name1']=value1
+
+        
+
+    req = requests.get(
+        "https://api.rootnet.in/covid19-in/stats/testing/history"
+    )
+    req = req.json()
+    req=req['data']
+    day1=req[-1]['totalSamplesTested']
+    day2=req[-2]['totalSamplesTested']
+    today=day1-day2
+
+
+    vaccine=requests.get(
+            "http://api.covid19india.org/csv/latest/vaccine_doses_statewise_v2.csv"
+        ).content
+    vaccine=pd.read_csv(io.StringIO(vaccine.decode('utf-8')))
+
+    firstdose={}
+    seconddose={}
+    state = ['Andaman and Nicobar Islands', 'Andhra Pradesh', 'Arunachal Pradesh', 'Assam', 'Bihar', 'Chandigarh', 'Chhattisgarh', 'Dadra and Nagar Haveli and Daman and Diu', 'Delhi', 'Goa', 'Gujarat', 'Haryana', 'Himachal Pradesh', 'Jammu and Kashmir', 'Jharkhand', 'Karnataka',
+                'Kerala', 'Ladakh', 'Lakshadweep', 'Madhya Pradesh', 'Maharashtra', 'Manipur', 'Meghalaya', 'Mizoram', 'Nagaland', 'Odisha', 'Puducherry', 'Punjab', 'Rajasthan', 'Sikkim', 'Tamil Nadu', 'Telangana', 'Tripura', 'Uttar Pradesh', 'Uttarakhand', 'West Bengal']
+        
+    for i in range(1,39):
+        firstdose[vaccine.iloc[-i]['State']]=vaccine.iloc[-i]['First Dose Administered']-vaccine.iloc[-i-38]['First Dose Administered'] 
+        seconddose[vaccine.iloc[-i]['State']]=vaccine.iloc[-i]['Second Dose Administered']-vaccine.iloc[-i-38]['Second Dose Administered'] 
+  
+    context1=[]
+    for i in state:
+        context1.append({'state':i,'first':firstdose[i],'second':seconddose[i]})
+    indiafirst=firstdose['Total']
+    indiasecond=seconddose['Total']
+    
+    print(indiafirst)
+
+    #context={'today':today,'day':req[-1]['day'],'vaccine':vaccine,'state':state,'context':context1,'date':date,'indiafirst':indiafirst,'indiasecond':indiasecond}
+
+    context['today']=today
+    context['day']=req[-1]['day']
+    context['vaccine']=vaccine
+    context['state']=state
+    context['context']=context1
+    context['date']=date
+    context['indiafirst']=indiafirst
+    context['indiasecond']=indiasecond
 
     return render(request, 'index.html', context,)
