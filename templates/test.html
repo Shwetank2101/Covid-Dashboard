@@ -36,50 +36,20 @@
                 return { path: path, projection: projection };
             }
         });
+        
 
+    
+    
         let bubbles = [
+        {% for name,sts in states%}
             {
                 centered: "MH",
                 fillKey: "MAJOR",
                 radius: 20,
-                state: "Maharastra"
-            },
-            {
-                centered: "AP",
-                fillKey: "MAJOR",
-                radius: 22,
-                state: "Andhra Pradesh"
-            },
-            {
-                centered: "TN",
-                fillKey: "MAJOR",
-                radius: 16,
-                state: "Tamil Nadu"
-            },
-            {
-                centered: "WB",
-                fillKey: "MEDIUM",
-                radius: 15,
-                state: "West Bengal"
-            },
-            {
-                centered: "MP",
-                fillKey: "MEDIUM",
-                radius: 15,
-                state: "Madhya Pradesh"
-            },
-            {
-                centered: "UP",
-                fillKey: "MINOR",
-                radius: 8,
-                state: "Uttar Pradesh"
-            },
-            {
-                centered: "RJ",
-                fillKey: "MINOR",
-                radius: 7,
-                state: "Rajasthan"
+                state: "{{name}}"
             }
+            {% endfor %}
+            
 
         ]
         // // ISO ID code for city or <state></state>
@@ -91,6 +61,11 @@
             });
         }, 1000);
     </script>
+
+    {% for name,stat in states %}
+    <p>{{stat.active}}</p>
+    {% endfor %}
+     <h1>Sam</h1>
 </body>
 
 </html>

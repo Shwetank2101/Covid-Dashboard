@@ -169,7 +169,7 @@
     
     .map1 {
         margin-top: 20pt;
-        padding-top:10pt;
+        padding-top: 10pt;
         background: white;
         height: 270pt;
         box-shadow: 12px 0px 19px rgb(228, 226, 226);
@@ -181,14 +181,14 @@
         background: white;
         box-shadow: 12px 0px 19px rgb(228, 226, 226);
     }
+    
     .vaccine {
         height: 50pt;
         margin-top: 10pt;
         background: white;
-        width:95%;
+        width: 95%;
         box-shadow: 12px 0px 19px rgb(228, 226, 226);
     }
-    
     
     .text {
         text-align: start;
@@ -475,7 +475,7 @@
 
 <body>
     <div id="wrapper">
-   
+
         <nav class="navbar ">
             <div class="container">
                 <a class="navbar-brand" href="#">
@@ -483,7 +483,7 @@
                 </a>
             </div>
         </nav>
-       
+
 
         <div class="helpline_outer" id="helpline-contact">
             <div class="helpline-title"> <span>HELPLINE NUMBERS</span></div>
@@ -637,9 +637,9 @@
 
 
 
-       
-            
-                        <div class="card-deck row" style="margin-top:20pt;">
+
+
+            <div class="card-deck row" style="margin-top:20pt;">
 
                 <div class="row">
                     <!-- Card -->
@@ -731,10 +731,10 @@
 
         <div id="center">
 
-         
 
-        
-            
+
+
+
 
 
             <div class="container-fluid" style="margin-top: 20pt ">
@@ -826,10 +826,9 @@
 
                 </div>
 
-                <div class=" map1 container-fluid">
-                    
 
-                        <script>
+                <div class=" map1 container-fluid">
+                    <script>
     window.onload = function () {
     
     var chart = new CanvasJS.Chart("chartContainer", {
@@ -897,15 +896,28 @@
     }
     </script>
     </head>
- 
+    <body>
+
     <div id="chartContainer" style="height: 300px; width: 100%;"></div>
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-
+                    
                 </div>
 
 
-                 <div class=" map1 container-fluid"></div>
+
+
+                <div class=" map1 container-fluid">
                  
+                </div>
+
+
+                    
+
+
+
+
+                {% comment %} <div class=" map1 container-fluid"></div> {% endcomment %}
+
                 <div class=" freq container-fluid">
                     <h2>Frequently Asked Questions</h2>
                     <div class="accordion" id="accordionExample">
@@ -973,16 +985,18 @@
             </div>
 
 
+
+
         </div>
-        </div>
+    </div>
 
 
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-        </script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
-        </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
 </body>
 
 </html>
